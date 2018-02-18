@@ -19,7 +19,7 @@ target_link_libraries(cmbasic perfect6502)
 # Warnings in test executable code - gross!
 if (MSVC)
   add_definitions(/D_CRT_SECURE_NO_DEPRECATE)
-  target_compile_options(cmbasic PRIVATE /wd4267 /wd4966)
+  target_compile_options(cmbasic PRIVATE /wd4267 /wd4996)
 else()
   target_compile_options(cmbasic PRIVATE -Wno-unused-but-set-variable -Wno-unused-result)
 endif()
