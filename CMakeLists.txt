@@ -13,4 +13,8 @@ target_include_directories(perfect6502 PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 add_executable(cmbasic cbmbasic.c runtime.c runtime_init.c plugin.c console.c emu.c)
 target_link_libraries(cmbasic perfect6502)
 # Warnings in test executable code - gross!
-target_compile_options(cmbasic PRIVATE -Wno-unused-but-set-variable -Wno-unused-result)
+if (MSVC)
+  # Nothing yet
+else()
+  target_compile_options(cmbasic PRIVATE -Wno-unused-but-set-variable -Wno-unused-result)
+endif()
