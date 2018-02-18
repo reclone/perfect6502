@@ -18,7 +18,7 @@ add_executable(cmbasic cbmbasic.c runtime.c runtime_init.c plugin.c console.c em
 target_link_libraries(cmbasic perfect6502)
 # Warnings in test executable code - gross!
 if (MSVC)
-  add_definitions(_CRT_SECURE_NO_DEPRECATE)
+  add_definitions(/D_CRT_SECURE_NO_DEPRECATE)
 else()
   target_compile_options(cmbasic PRIVATE -Wno-unused-but-set-variable -Wno-unused-result)
 endif()
