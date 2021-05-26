@@ -145,7 +145,7 @@ handleMemory(void *state)
  *
  ************************************************************/
 
-static unsigned int cycle;
+unsigned int cycle;
 
 void
 step(void *state)
@@ -196,6 +196,12 @@ initAndResetChip()
 	cycle = 0;
 
 	return state;
+}
+
+void
+destroyChip(void *state)
+{
+    destroyNodesAndTransistors(state);
 }
 
 /************************************************************
